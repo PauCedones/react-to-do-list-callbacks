@@ -6,7 +6,7 @@ class Tasks extends React.Component {
     return (
       <>
         <ul className="taskContainer">
-          {[].map((name, key) => {
+          {this.props.tasks.map((name, key) => {
             return <Task name={name} key={key} />;
           })}
         </ul>
