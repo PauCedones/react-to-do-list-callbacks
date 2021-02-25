@@ -7,14 +7,25 @@ function AddTasks(props) {
     setInputValue(e.target.value);
   }
   function handleClick() {
-    if (inputValue != "") {
+    if (inputValue && props.handleCallback) {
+      props.handleCallback(inputValue);
+      setInputValue("");
+    }
+  }
+  function handleKeyPress(e) {
+    if (e.keyCode == 13) {
       props.handleCallback(inputValue);
       setInputValue("");
     }
   }
   return (
     <>
-      <input type="text" onChange={handleChange} value={inputValue} />
+      <input
+        onKeyDown={handleKeyPress}
+        type="text"
+        onChange={handleChange}
+        value={inputValue}
+      />
       <button onClick={handleClick}>Agregar</button>
     </>
   );
