@@ -6,16 +6,16 @@ function AddTasks(props) {
   function handleChange(e) {
     setInputValue(e.target.value);
   }
-  function handleClick() {
+  function addTask(e) {
     if (inputValue && props.handleCallback) {
       props.handleCallback(inputValue);
       setInputValue("");
     }
   }
+
   function handleKeyPress(e) {
     if (e.keyCode == 13) {
-      props.handleCallback(inputValue);
-      setInputValue("");
+      addTask();
     }
   }
   return (
@@ -26,7 +26,7 @@ function AddTasks(props) {
         onChange={handleChange}
         value={inputValue}
       />
-      <button onClick={handleClick}>Agregar</button>
+      <button onClick={addTask}>Agregar</button>
     </>
   );
 }
