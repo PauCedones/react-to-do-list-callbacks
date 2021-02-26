@@ -6,7 +6,9 @@ function Tasks(props) {
     <>
       <ul>
         {props.tasks.map((task, key) => {
-          return <Task name={task} key={key} />;
+          return (
+            <Task name={task.value} isCompleted={task.isCompleted} key={key} />
+          );
         })}
       </ul>
     </>
