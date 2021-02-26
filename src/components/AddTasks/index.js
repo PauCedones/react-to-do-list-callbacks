@@ -6,13 +6,12 @@ function AddTasks(props) {
   function handleChange(e) {
     setInputValue(e.target.value);
   }
-  function addTask(e) {
+  function addTask() {
     if (inputValue && props.handleCallback) {
       props.handleCallback(inputValue);
       setInputValue("");
     }
   }
-
   function handleKeyPress(e) {
     if (e.keyCode == 13) {
       addTask();

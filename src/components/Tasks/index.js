@@ -1,13 +1,12 @@
 import React from "react";
-import Task from "./Task/index";
+import Task from "../Task";
 
 function Tasks(props) {
-  const { tasks } = props;
   return (
     <>
       <ul>
-        {tasks.map((task, key) => {
-          return <Task task={task} key={key} />;
+        {props.tasks.map((task, key) => {
+          return <Task name={task} key={key} />;
         })}
       </ul>
     </>
